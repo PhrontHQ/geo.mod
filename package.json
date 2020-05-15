@@ -1,7 +1,7 @@
 {
   "name": "montage-geo",
   "version": "0.1.0",
-  "author": "Montage Studio, inc. (http://montagestudio.com/)",
+  "author": "Guardians of Montage",
   "description": "Montage resources to build geospatial applications",
   "dependencies": {
     "d3-geo": "^1.6.3",
