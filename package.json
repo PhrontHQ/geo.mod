@@ -4,11 +4,9 @@
   "author": "Montage Studio, inc. (http://montagestudio.com/)",
   "description": "Montage resources to build geospatial applications",
   "dependencies": {
-    "collections": "~5.0.x",
     "d3-geo": "^1.6.3",
-    "frb": "~3.0.x",
+    "montage": "github:marchant/montage#montage-19",
     "leaflet": "~1.6.x",
-    "montage": "montagejs/montage.git#17.2.4",
     "proj4": "~2.3.6",
     "topojson-client": "^3.0.0"
   },
