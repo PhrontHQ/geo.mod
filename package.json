@@ -5,8 +5,8 @@
   "description": "Montage resources to build geospatial applications",
   "dependencies": {
     "d3-geo": "^1.6.3",
-    "leaflet": "~1.6.x",
     "montage": "github:marchant/montage#montage-19",
+    "leaflet": "~1.6.x",
     "proj4": "~2.3.6",
     "topojson-client": "^3.0.0"
   },
