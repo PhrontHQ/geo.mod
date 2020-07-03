@@ -1,7 +1,7 @@
 var Converter = require("montage/core/converter/converter").Converter,
     Enumeration = require("montage/data/model/enumeration").Enumeration,
     LineString = require("logic/model/line-string").LineString,
-    Map = require("montage/collections/map"),
+    Map = require("montage/core/collections/map"),
     MultiLineString = require("logic/model/multi-line-string").MultiLineString,
     MultiPoint = require("logic/model/multi-point").MultiPoint,
     MultiPolygon = require("logic/model/multi-polygon").MultiPolygon,
