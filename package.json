@@ -6,7 +6,10 @@
   "dependencies": {
     "d3-geo": "^1.6.3",
     "montage": "github:marchant/montage#montage-19",
+<<<<<<< HEAD
     "leaflet": "~1.6.x",
+=======
+>>>>>>> c1c6411bb5e89e7247ae302b451d10c056473678
     "proj4": "~2.3.6",
     "topojson-client": "^3.0.0"
   },
