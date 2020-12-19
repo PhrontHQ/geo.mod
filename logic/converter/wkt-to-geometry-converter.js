@@ -711,6 +711,9 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
             this._setPropertyWithDefaults(serializer, "convertingSRID", this.convertingSRID);
             this._setPropertyWithDefaults(serializer, "revertingSRID", this.revertingSRID);
             this._setPropertyWithDefaults(serializer, "convertingGeometryLayout", this.convertingGeometryLayout);
+            this._setPropertyWithDefaults(serializer, "revertsSRID", this.revertsSRID);
+
+
         }
     },
 
@@ -719,6 +722,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
             this.convertingSRID = this._getPropertyWithDefaults(deserializer, "convertingSRID");
             this.revertingSRID = this._getPropertyWithDefaults(deserializer, "revertingSRID");
             this.convertingGeometryLayout = this._getPropertyWithDefaults(deserializer, "convertingGeometryLayout");
+            this.revertsSRID = this._getPropertyWithDefaults(deserializer, "revertsSRID");
         }
     },
 
@@ -906,7 +910,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
                 //geometry being reverted has more dimension than convertingGeometryLayout
                 if((dimInfo.length+2/*adding XY*/ ) > this.convertingGeometryLayout.length) {
                     throw new Error("Geometry being reverted has more dimensions [XY"+dimInfo+"] than converter's convertingGeometryLayout ["+this.convertingGeometryLayout+"]");
-                } else {
+                } else if(dimInfo.length+2 === this.convertingGeometryLayout.length) {
                     /*
                         both sides are the same length, but could be XYM vs XYZ
                     */
@@ -1012,12 +1016,12 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
 
             if((position.hasOwnProperty("altitude") && !convertingGeometryLayout) || (convertingGeometryLayout && convertingGeometryLayout.indexOf("Z") !== -1)) {
                 wktPointValue += " ";
-                wktPointValue += position.altitude;
+                wktPointValue += position.altitude || 0;
             }
 
             if(position.measure && (!convertingGeometryLayout || (convertingGeometryLayout && convertingGeometryLayout.indexOf("M") !== -1))) {
                 wktPointValue += " ";
-                wktPointValue += position.measure;
+                wktPointValue += position.measure || 0;
             }
 
             return wktPointValue;
