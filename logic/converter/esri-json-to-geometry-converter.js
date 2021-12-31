@@ -1,13 +1,13 @@
 var Converter = require("montage/core/converter/converter").Converter,
     Enumeration = require("montage/data/model/enumeration").Enumeration,
-    LineString = require("logic/model/line-string").LineString,
+    LineString = require("../model/line-string").LineString,
     Map = require("montage/core/collections/map"),
-    MultiLineString = require("logic/model/multi-line-string").MultiLineString,
-    MultiPoint = require("logic/model/multi-point").MultiPoint,
-    MultiPolygon = require("logic/model/multi-polygon").MultiPolygon,
-    Point = require("logic/model/point").Point,
-    Polygon = require("logic/model/polygon").Polygon,
-    Projection = require("logic/model/projection").Projection;
+    MultiLineString = require("../model/multi-line-string").MultiLineString,
+    MultiPoint = require("../model/multi-point").MultiPoint,
+    MultiPolygon = require("../model/multi-polygon").MultiPolygon,
+    Point = require("../model/point").Point,
+    Polygon = require("../model/polygon").Polygon,
+    Projection = require("../model/projection").Projection;
 
 var MONTAGE_CONSTRUCTOR_TYPE_MAP = new Map();
 MONTAGE_CONSTRUCTOR_TYPE_MAP.set(LineString, "Polyline");

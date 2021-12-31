@@ -30,11 +30,11 @@
             },
             "propertyValidationRules": {},
             "objectDescriptorModule": {
-                "%": "logic/model/position.mjson"
+                "%": "./position.mjson"
             },
             "exportName": "Position",
             "module": {
-                "%": "logic/model/position"
+                "%": "./position"
             },
             "object":{"@": "position"}
         }

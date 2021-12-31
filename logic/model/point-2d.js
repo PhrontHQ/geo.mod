@@ -1,4 +1,4 @@
-var Point = require("logic/model/point").Point;
+var Point = require("./point").Point;
 
 /**
  *

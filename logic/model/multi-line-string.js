@@ -1,5 +1,5 @@
 var Geometry = require("./geometry").Geometry,
-    BoundingBox = require("logic/model/bounding-box").BoundingBox,
+    BoundingBox = require("./bounding-box").BoundingBox,
     LineString = require("./line-string").LineString,
     Map = require("montage/core/collections/map");
 

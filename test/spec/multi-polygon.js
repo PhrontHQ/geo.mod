@@ -1,5 +1,5 @@
 var MultiPolygon = require("montage-geo/logic/model/multi-polygon").MultiPolygon,
-    Bindings = require("montage-geo/frb/bindings"),
+    Bindings = require("montage/core/frb/bindings"),
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
     Polygon = require("montage-geo/logic/model/polygon").Polygon,
     Position = require("montage-geo/logic/model/position").Position,

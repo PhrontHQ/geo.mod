@@ -1,5 +1,5 @@
 var Montage = require("montage/core/core").Montage,
-    BoundingBox = require("logic/model/bounding-box").BoundingBox,
+    BoundingBox = require("./bounding-box").BoundingBox,
     Uuid = require("montage/core/uuid").Uuid,
     DASH_REG_EX = /-/g,
     IDENTIFIER_PREFIX = "G",

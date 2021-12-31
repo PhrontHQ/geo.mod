@@ -10,13 +10,13 @@
             ],
             "exportName": "Point",
             "module": {
-                "%": "logic/model/point"
+                "%": "../point"
             }
         }
     },
 
     "geometry": {
-        "object": "logic/model/descriptors/geometry.mjson"
+        "object": "./geometry.mjson"
     },
 
     "identifier": {

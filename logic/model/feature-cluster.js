@@ -1,6 +1,6 @@
 var Montage = require("montage/core/core").Montage,
-    Map = require("montage/collections/map"),
-    Set = require("montage/collections/set");
+    Map = require("montage/core/collections/map"),
+    Set = require("montage/core/collections/set");
 
 /**
  *

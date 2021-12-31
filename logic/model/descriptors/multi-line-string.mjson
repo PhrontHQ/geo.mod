@@ -10,13 +10,13 @@
             ],
             "exportName": "MultiLineString",
             "module": {
-                "%": "logic/model/multi-line-string"
+                "%": "../multi-line-string"
             }
         }
     },
 
     "geometry": {
-        "object": "logic/model/descriptors/geometry.mjson"
+        "object": "./geometry.mjson"
     },
 
     "identifier": {

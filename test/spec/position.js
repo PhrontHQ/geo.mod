@@ -3,7 +3,7 @@ var Position = require("montage-geo/logic/model/position").Position,
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
     Projection = require("montage-geo/logic/model/projection").Projection,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
-    Set = require("montage/collections/set").Set;
+    Set = require("montage/core/collections/set").Set;
 
 describe("A Position", function () {
 

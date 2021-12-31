@@ -10,13 +10,13 @@
             ],
             "exportName": "Polygon",
             "module": {
-                "%": "logic/model/polygon"
+                "%": "../polygon"
             }
         }
     },
 
     "geometry": {
-        "object": "logic/model/descriptors/geometry.mjson"
+        "object": "./geometry.mjson"
     },
 
     "identifier": {

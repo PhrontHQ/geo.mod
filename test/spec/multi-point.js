@@ -1,5 +1,5 @@
 var MultiPoint = require("montage-geo/logic/model/multi-point").MultiPoint,
-    Bindings = require("montage-geo/frb/bindings"),
+    Bindings = require("montage/core/frb/bindings"),
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
     Position = require("montage-geo/logic/model/position").Position,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;

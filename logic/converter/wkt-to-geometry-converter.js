@@ -8,7 +8,7 @@ var Position = require("../model/position").Position,
     GeometryCollection = require("../model/geometry-collection").GeometryCollection,
     Converter = require("montage/core/converter/converter").Converter,
     Enumeration = require("montage/data/model/enumeration").Enumeration,
-    Projection = require("logic/model/projection").Projection,
+    Projection = require("../model/projection").Projection,
     WktParser,
     GeometryLayout;
 

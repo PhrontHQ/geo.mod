@@ -1,5 +1,5 @@
 var Converter = require("montage/core/converter/converter").Converter,
-    StyleType = require("logic/model/style").StyleType;
+    StyleType = require("../model/style").StyleType;
 
 /**
  * @class KmlStyleToStyleConverter

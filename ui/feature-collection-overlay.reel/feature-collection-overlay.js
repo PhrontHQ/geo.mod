@@ -1,10 +1,10 @@
 var Overlay = require("ui/overlay").Overlay,
     ClusterOrganizer = require("logic/model/cluster-organizer").ClusterOrganizer,
-    Map = require("montage/collections/map"),
+    Map = require("montage/core/collections/map"),
     MapPane = require("logic/model/map-pane").MapPane,
     MultiPoint = require("logic/model/multi-point").MultiPoint,
     Point = require("logic/model/point").Point,
-    Set = require("montage/collections/set");
+    Set = require("montage/core/collections/set");
 
 
 /**

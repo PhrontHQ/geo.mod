@@ -10,13 +10,13 @@
             ],
             "exportName": "MultiPoint",
             "module": {
-                "%": "logic/model/multi-point"
+                "%": "../multi-point"
             }
         }
     },
 
     "geometry": {
-        "object": "logic/model/descriptors/geometry.mjson"
+        "object": "./geometry.mjson"
     },
 
     "identifier": {

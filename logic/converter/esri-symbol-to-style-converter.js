@@ -1,11 +1,11 @@
 var Converter = require("montage/core/converter/converter").Converter,
-    Color = require("logic/model/color").Color,
+    Color = require("../model/color").Color,
     Enumeration = require("montage/data/model/enumeration").Enumeration,
-    Icon = require("logic/model/icon").Icon,
-    Point2D = require("logic/model/point-2d").Point2D,
+    Icon = require("../model/icon").Icon,
+    Point2D = require("../model/point-2d").Point2D,
     Promise = require("montage/core/promise").Promise,
-    Size = require("logic/model/size").Size,
-    Style = require("logic/model/style").Style;
+    Size = require("../model/size").Size,
+    Style = require("../model/style").Style;
 
 /**
  * @class EsriSymbolToStyleConverter

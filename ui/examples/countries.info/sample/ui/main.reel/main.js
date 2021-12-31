@@ -3,7 +3,7 @@ var Component = require("montage/ui/component").Component,
     CountryService = require("../../logic/service/country-service").CountryService,
     DataSelector = require("montage/data/service/data-selector").DataSelector,
     DataService = require("montage/data/service/data-service").DataService,
-    Set = require("montage/collections/set");
+    Set = require("montage/core/collections/set");
 
 /**
  * @class Main

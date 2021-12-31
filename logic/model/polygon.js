@@ -1,8 +1,8 @@
 var Geometry = require("./geometry").Geometry,
-    BoundingBox = require("logic/model/bounding-box").BoundingBox,
-    Circle = require("logic/model/circle").Circle,
+    BoundingBox = require("./bounding-box").BoundingBox,
+    Circle = require("./circle").Circle,
     d3Geo = require("d3-geo"),
-    Point = require("logic/model/point").Point,
+    Point = require("./point").Point,
     Position = require("./position").Position;
 
 /**

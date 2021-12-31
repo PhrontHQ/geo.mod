@@ -1,5 +1,5 @@
 var Point = require("montage-geo/logic/model/point").Point,
-    Bindings = require("montage-geo/frb/bindings"),
+    Bindings = require("montage/core/frb/bindings"),
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
     Montage = require("montage/core/core").Montage,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,

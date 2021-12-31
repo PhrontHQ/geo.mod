@@ -10,13 +10,13 @@
             ],
             "exportName": "LineString",
             "module": {
-                "%": "logic/model/line-string"
+                "%": "../line-string"
             }
         }
     },
 
     "geometry": {
-        "object": "logic/model/descriptors/geometry.mjson"
+        "object": "./geometry.mjson"
     },
 
     "identifier": {

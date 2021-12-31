@@ -16,7 +16,7 @@ Promise.config({
     warnings: false
 });
 
-module.exports = require("montage-testing").run(require, [
+module.exports = require("montage/testing/run").run(require, [
     "spec/wkt-to-geometry-converter",
     "spec/bounding-box",
     "spec/circle",
