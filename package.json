@@ -5,6 +5,7 @@
   "description": "Montage resources to build geospatial applications",
   "dependencies": {
     "d3-geo": "^1.6.3",
+    "leaflet": "~1.6.x",
     "montage": "github:marchant/montage#montage-19",
     "leaflet": "~1.6.x",
     "proj4": "~2.3.6",
@@ -21,8 +22,7 @@
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
-    "montage-testing": "montagejs/montage-testing",    
-    "mr": "montagejs/mr#master",
+    "montage-testing": "montagejs/montage-testing",
     "open": "0.0.5"
   },
   "scripts": {
