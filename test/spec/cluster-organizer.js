@@ -1,5 +1,5 @@
-var ClusterOrganizer = require("montage-geo/logic/model/cluster-organizer").ClusterOrganizer,
-    GeoPoint = require("montage-geo/logic/model/point").Point;
+var ClusterOrganizer = require("geo.mod/logic/model/cluster-organizer").ClusterOrganizer,
+    GeoPoint = require("geo.mod/logic/model/point").Point;
 
 describe("A Cluster Organizer", function () {
 

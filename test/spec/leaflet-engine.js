@@ -1,11 +1,11 @@
-var LeafletEngine = require("montage-geo/ui/leaflet-engine.reel").LeafletEngine,
-    Feature = require("montage-geo/logic/model/feature").Feature,
-    LineString = require("montage-geo/logic/model/line-string").LineString,
-    MultiLineString = require("montage-geo/logic/model/multi-line-string").MultiLineString,
-    MultiPoint = require("montage-geo/logic/model/multi-point").MultiPoint,
-    MultiPolygon = require("montage-geo/logic/model/multi-polygon").MultiPolygon,
-    Point = require("montage-geo/logic/model/point").Point,
-    Polygon = require("montage-geo/logic/model/polygon").Polygon;
+var LeafletEngine = require("geo.mod/ui/leaflet-engine.reel").LeafletEngine,
+    Feature = require("geo.mod/logic/model/feature").Feature,
+    LineString = require("geo.mod/logic/model/line-string").LineString,
+    MultiLineString = require("geo.mod/logic/model/multi-line-string").MultiLineString,
+    MultiPoint = require("geo.mod/logic/model/multi-point").MultiPoint,
+    MultiPolygon = require("geo.mod/logic/model/multi-polygon").MultiPolygon,
+    Point = require("geo.mod/logic/model/point").Point,
+    Polygon = require("geo.mod/logic/model/polygon").Polygon;
 
 describe("A Leaflet Engine", function () {
 

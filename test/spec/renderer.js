@@ -1,9 +1,9 @@
-var ClassBreaksRenderer = require("montage-geo/logic/model/class-breaks-renderer").ClassBreaksRenderer,
-    EsriJsonToGeometryConverter = require("montage-geo/logic/converter/esri-json-to-geometry-converter").EsriJsonToGeometryConverter,
-    Feature = require("montage-geo/logic/model/feature").Feature,
-    SimpleRenderer = require("montage-geo/logic/model/simple-renderer").SimpleRenderer,
-    Style = require("montage-geo/logic/model/style").Style,
-    UniqueValueRenderer = require("montage-geo/logic/model/unique-value-renderer").UniqueValueRenderer;
+var ClassBreaksRenderer = require("geo.mod/logic/model/class-breaks-renderer").ClassBreaksRenderer,
+    EsriJsonToGeometryConverter = require("geo.mod/logic/converter/esri-json-to-geometry-converter").EsriJsonToGeometryConverter,
+    Feature = require("geo.mod/logic/model/feature").Feature,
+    SimpleRenderer = require("geo.mod/logic/model/simple-renderer").SimpleRenderer,
+    Style = require("geo.mod/logic/model/style").Style,
+    UniqueValueRenderer = require("geo.mod/logic/model/unique-value-renderer").UniqueValueRenderer;
 
 describe("Renderer", function() {
 

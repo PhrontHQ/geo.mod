@@ -1,8 +1,8 @@
-var MultiPolygon = require("montage-geo/logic/model/multi-polygon").MultiPolygon,
+var MultiPolygon = require("geo.mod/logic/model/multi-polygon").MultiPolygon,
     Bindings = require("montage/core/frb/bindings"),
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Polygon = require("montage-geo/logic/model/polygon").Polygon,
-    Position = require("montage-geo/logic/model/position").Position,
+    Polygon = require("geo.mod/logic/model/polygon").Polygon,
+    Position = require("geo.mod/logic/model/position").Position,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;
 
 describe("A MultiPolygon", function () {

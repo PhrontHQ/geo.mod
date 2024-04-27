@@ -742,7 +742,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
 
     /**
      * The SRID of WKT String being converted to a geometry.
-     * As of now, montage-geo is coded to only handle SRID 4326,
+     * As of now, geo.mod is coded to only handle SRID 4326,
      *
      * and therefore assumes data is coming in that SRID as well.
      *
@@ -934,7 +934,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
               return type + ' ' + EMPTY;
             }
             /*
-                montage-geo only knows how to work in 4326 only for now, which is why post creation
+                geo.mod only knows how to work in 4326 only for now, which is why post creation
                 of the Positions, we don't keep track of the projection used, it got to be 4326.
 
                 When that evolves, this code will need to evolve too, and not just include the right

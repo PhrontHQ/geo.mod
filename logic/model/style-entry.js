@@ -26,7 +26,7 @@ var StyleEntry = exports.StyleEntry = Montage.specialize(/** @lends DefaultRende
     localizationKey: {
         get: function () {
             if (!this._localizationKey) {
-                this._localizationKey = "montage-geo.logic.model.style-entry." + this.label;
+                this._localizationKey = "geo.mod.logic.model.style-entry." + this.label;
             }
             return this._localizationKey;
         }

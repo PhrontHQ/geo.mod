@@ -1,11 +1,11 @@
-var BoundingBox = require("montage-geo/logic/model/bounding-box").BoundingBox,
+var BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox,
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Point = require("montage-geo/logic/model/point").Point,
-    LineString = require("montage-geo/logic/model/line-string").LineString,
-    MultiLineString = require("montage-geo/logic/model/multi-line-string").MultiLineString,
-    MultiPoint = require("montage-geo/logic/model/multi-point").MultiPoint,
+    Point = require("geo.mod/logic/model/point").Point,
+    LineString = require("geo.mod/logic/model/line-string").LineString,
+    MultiLineString = require("geo.mod/logic/model/multi-line-string").MultiLineString,
+    MultiPoint = require("geo.mod/logic/model/multi-point").MultiPoint,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
-    Position = require("montage-geo/logic/model/position").Position;
+    Position = require("geo.mod/logic/model/position").Position;
 
 describe("A BoundingBox", function () {
 

@@ -1,4 +1,4 @@
-var EsriSymbolToStyleConverter = require("montage-geo/logic/converter/esri-symbol-to-style-converter").EsriSymbolToStyleConverter;
+var EsriSymbolToStyleConverter = require("geo.mod/logic/converter/esri-symbol-to-style-converter").EsriSymbolToStyleConverter;
 
 describe("A Esri Symbol To Style Converter", function () {
 

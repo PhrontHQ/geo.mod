@@ -4,7 +4,7 @@
     "description": "",
     "mappings": {
         "montage": "../../../../node_modules/montage",
-        "montage-geo": "../../../../"
+        "geo.mod": "../../../../"
     },
     "manifest": true
 }

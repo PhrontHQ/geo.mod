@@ -1,4 +1,4 @@
-var Feature = require("montage-geo/logic/model/feature").Feature,
+var Feature = require("geo.mod/logic/model/feature").Feature,
     DataObjectDescriptor = require("montage/data/model/data-object-descriptor").DataObjectDescriptor;
 
 /**

@@ -1,5 +1,5 @@
-var Point2D = require("montage-geo/logic/model/point-2d").Point2D,
-    Point = require("montage-geo/logic/model/point").Point;
+var Point2D = require("geo.mod/logic/model/point-2d").Point2D,
+    Point = require("geo.mod/logic/model/point").Point;
 
 describe("Point 2D", function () {
 

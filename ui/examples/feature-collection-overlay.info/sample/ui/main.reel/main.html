@@ -16,7 +16,7 @@
             }
         },
         "map": {
-            "prototype": "montage-geo/ui/map.reel",
+            "prototype": "geo.mod/ui/map.reel",
             "properties": {
                 "element": {"#": "map"},
                 "center": [-156.6825, 20.8783],
@@ -25,10 +25,10 @@
             }
         },
         "featureCollection": {
-            "prototype": "montage-geo/logic/model/feature-collection"
+            "prototype": "geo.mod/logic/model/feature-collection"
         },
         "featureCollectionOverlay": {
-            "prototype": "montage-geo/ui/feature-collection-overlay.reel",
+            "prototype": "geo.mod/ui/feature-collection-overlay.reel",
             "values": {
                 "collection": {"@": "featureCollection"},
                 "map": {"@": "map"}

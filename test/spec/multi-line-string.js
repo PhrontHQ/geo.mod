@@ -1,9 +1,9 @@
-var MultiLineString = require("montage-geo/logic/model/multi-line-string").MultiLineString,
+var MultiLineString = require("geo.mod/logic/model/multi-line-string").MultiLineString,
     Bindings = require("montage/core/frb/bindings"),
-    BoundingBox = require("montage-geo/logic/model/bounding-box").BoundingBox,
+    BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox,
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    LineString = require("montage-geo/logic/model/line-string").LineString,
-    Position = require("montage-geo/logic/model/position").Position,
+    LineString = require("geo.mod/logic/model/line-string").LineString,
+    Position = require("geo.mod/logic/model/position").Position,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;
 
 describe("A MultiLineString", function () {

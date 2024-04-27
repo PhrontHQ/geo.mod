@@ -1,5 +1,5 @@
-var FeatureCluster = require("montage-geo/logic/model/feature-cluster").FeatureCluster,
-    Point = require("montage-geo/logic/model/point-2d").Point2D;
+var FeatureCluster = require("geo.mod/logic/model/feature-cluster").FeatureCluster,
+    Point = require("geo.mod/logic/model/point-2d").Point2D;
 
 describe("A Feature Cluster", function () {
 

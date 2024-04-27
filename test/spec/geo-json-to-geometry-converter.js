@@ -1,5 +1,5 @@
-var GeoJsonToGeometryConverter = require("montage-geo/logic/converter/geo-json-to-geometry-converter").GeoJsonToGeometryConverter,
-    Projection = require("montage-geo/logic/model/projection").Projection;
+var GeoJsonToGeometryConverter = require("geo.mod/logic/converter/geo-json-to-geometry-converter").GeoJsonToGeometryConverter,
+    Projection = require("geo.mod/logic/model/projection").Projection;
 
 describe("GeoJsonToGeometryConverter", function () {
 

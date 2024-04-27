@@ -1,8 +1,8 @@
-var Point2D = require("montage-geo/logic/model/point-2d").Point2D,
+var Point2D = require("geo.mod/logic/model/point-2d").Point2D,
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Rect = require("montage-geo/logic/model/rect").Rect,
+    Rect = require("geo.mod/logic/model/rect").Rect,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
-    Size = require("montage-geo/logic/model/size").Size;
+    Size = require("geo.mod/logic/model/size").Size;
 
 describe("Rect", function () {
 

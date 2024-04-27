@@ -1,5 +1,5 @@
-var GeohashCollection = require("montage-geo/logic/model/geohash-collection").GeohashCollection,
-    BoundingBox = require("montage-geo/logic/model/bounding-box").BoundingBox;
+var GeohashCollection = require("geo.mod/logic/model/geohash-collection").GeohashCollection,
+    BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox;
 
 
 describe("A GeohashCollection", function () {

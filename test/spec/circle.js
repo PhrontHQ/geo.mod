@@ -1,8 +1,8 @@
-var Circle = require("montage-geo/logic/model/circle").Circle,
+var Circle = require("geo.mod/logic/model/circle").Circle,
     Bindings = require("montage/core/frb/bindings"),
     Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Point = require("montage-geo/logic/model/point").Point,
-    Position = require("montage-geo/logic/model/position").Position,
+    Point = require("geo.mod/logic/model/point").Point,
+    Position = require("geo.mod/logic/model/position").Position,
     Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;
 
 describe("A Circle", function () {

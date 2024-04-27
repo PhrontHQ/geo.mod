@@ -12,7 +12,7 @@
     "author": "Montage Studio, inc. (http://montagestudio.com/)",
     "repository": {
         "type": "git",
-        "url": "montagestudio/montage-geo-tests"
+        "url": "montagestudio/geo.mod-tests"
     },
     "scripts": {
         "postinstall": "npm link ./.."
@@ -20,7 +20,7 @@
     "mappings": {
         "montage": "../node_modules/montage",
         "montage-testing": "../node_modules/montage-testing",
-        "montage-geo": "../"
+        "geo.mod": "../"
     },
     "dependencies": {
         "montage": "17.2.1"

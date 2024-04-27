@@ -1,6 +1,6 @@
 var Component = require("montage/ui/component").Component,
-    BoundingBox = require("montage-geo/logic/model/bounding-box").BoundingBox,
-    Feature = require("montage-geo/logic/model/feature").Feature;
+    BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox,
+    Feature = require("geo.mod/logic/model/feature").Feature;
 /**
  * @class Main
  * @extends Component

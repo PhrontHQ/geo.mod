@@ -1,13 +1,12 @@
 {
-  "name": "montage-geo",
-  "version": "0.1.0",
-  "author": "Guardians of Montage",
-  "description": "Montage resources to build geospatial applications",
+  "name": "geo.mod",
+  "version": "1.0",
+  "author": "Guardians of Mod",
+  "description": "Mod to build geospatial applications",
   "dependencies": {
     "d3-geo": "^1.6.3",
     "leaflet": "~1.6.x",
     "montage": "github:PhrontHQ/montage#montage-19",
-    "leaflet": "~1.6.x",
     "proj4": "~2.3.6",
     "topojson-client": "^3.0.0"
   },
@@ -33,9 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/montagejs/montage-geo.git"
+    "url": "git+https://github.com/PhrontHQ/geo.mod.git"
   },
   "keywords": [
+    "Mod",
     "MontageJS",
     "Geospatial",
     "Maps",
@@ -46,7 +46,7 @@
   ],
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/montagejs/montage-geo/issues"
+    "url": "https://github.com/PhrontHQ/geo.mod/issues"
   },
-  "homepage": "https://github.com/montagejs/montage-geo#readme"
+  "homepage": "https://github.com/PhrontHQ/geo.mod#readme"
 }
