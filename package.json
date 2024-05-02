@@ -6,7 +6,7 @@
   "dependencies": {
     "d3-geo": "^1.6.3",
     "leaflet": "~1.6.x",
-    "montage": "github:PhrontHQ/montage#montage-19",
+    "mod": "github:PhrontHQ/mod#mod",
     "proj4": "~2.3.6",
     "topojson-client": "^3.0.0"
   },
