@@ -1,4 +1,4 @@
-console.log('montage-testing', 'Start');
+console.log('mod-testing', 'Start');
 
 var Promise = require("mod/core/promise").Promise;
 
@@ -48,7 +48,7 @@ module.exports = require("mod/testing/run").run(require, [
     "spec/style",
     "spec/topojson-to-geometry-converter"
 ]).then(function () {
-    console.log('montage-testing', 'End');
+    console.log('mod-testing', 'End');
 }, function (err) {
-    console.log('montage-testing', 'Fail', err, err.stack);
+    console.log('mod-testing', 'Fail', err, err.stack);
 });

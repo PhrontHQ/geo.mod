@@ -1,4 +1,4 @@
-var Montage = require("montage").Montage,
+var Montage = require("mod").Montage,
     Map = require("mod/core/collections/map"),
     Set = require("mod/core/collections/set");
 

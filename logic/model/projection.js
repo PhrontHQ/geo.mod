@@ -174,7 +174,7 @@ exports.Projection = Enumeration.specialize("", /** @lends Projection.prototype 
     },
 
     _fetch: {
-        //TODO Make Projection a first level montage-data type and perform the fetch in a service
+        //TODO Make Projection a first level mod-data type and perform the fetch in a service
         value: function (url) {
             var self = this,
                 xhr;

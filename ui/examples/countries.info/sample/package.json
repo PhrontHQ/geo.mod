@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "sample",
     "mappings": {
-        "montage": "../../../../node_modules/montage",
+        "mod": "../../../../node_modules/mod",
         "geo.mod": "../../../../"
     },
     "manifest": true

@@ -121,7 +121,7 @@ exports.LeafletEngine = Component.specialize(/** @lends LeafletEngine# */ {
      * position based upon the pixel origin.
      *
      * @public
-     * @type {montage-maps/logic/model/Point}
+     * @type {mod-maps/logic/model/Point}
      * @readonly
      */
     pixelOrigin: {

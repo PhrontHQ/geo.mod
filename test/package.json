@@ -18,12 +18,12 @@
         "postinstall": "npm link ./.."
     },
     "mappings": {
-        "montage": "../node_modules/montage",
-        "montage-testing": "../node_modules/montage-testing",
+        "mod": "../node_modules/mod",
+        "mod-testing": "../node_modules/mod/testing",
         "geo.mod": "../"
     },
     "dependencies": {
-        "montage": "17.2.1"
+        "mod": "github:PhrontHQ/mod#mod"
     },
     "private": true
 }

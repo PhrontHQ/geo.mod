@@ -6,7 +6,7 @@
         Action Bar Example Description
     </title>
     <link rel="stylesheet" href="description.css">
-    <script type="text/montage-serialization">
+    <script type="text/mod-serialization">
     {
         "owner": {
             "properties": {"element": {"#": "description"}}
@@ -19,7 +19,7 @@
         },
 
         "actionText": {
-            "prototype": "mod/ui/text.reel",
+            "prototype": "mod/ui/tmext.reel",
             "properties": {"element": {"#": "actionText"}},
             "bindings": {"value": {"<-": "@owner.actionName"}}
         }
@@ -27,10 +27,10 @@
     </script>
 </head>
 <body>
-    <div data-montage-id="description" class="Description">
-        <h3> <span data-montage-id="nameText"></span></h3>
+    <div data-mod-id="description" class="Description">
+        <h3> <span data-mod-id="nameText"></span></h3>
         <div>
-            <p>Actions:<span data-montage-id="actionText" class="Description-actionText"></span></p>
+            <p>Actions:<span data-mod-id="actionText" class="Description-actionText"></span></p>
         </div>
     </div>
 </body>
