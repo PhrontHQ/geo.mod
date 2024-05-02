@@ -1,9 +1,9 @@
 var Feature = require("geo.mod/logic/model/feature").Feature,
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
     Icon = require("geo.mod/logic/model/icon").Icon,
     Point = require("geo.mod/logic/model/point").Point,
     Point2D = require("geo.mod/logic/model/point-2d").Point2D,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer,
     Size = require("geo.mod/logic/model/size").Size,
     Style = require("geo.mod/logic/model/style").Style;
 

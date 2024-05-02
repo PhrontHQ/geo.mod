@@ -1,8 +1,8 @@
 var Point = require("geo.mod/logic/model/point").Point,
-    Bindings = require("montage/core/frb/bindings"),
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Montage = require("montage/core/core").Montage,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
+    Bindings = require("mod/core/frb/bindings"),
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Montage = require("mod/core/core").Montage,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer,
     Position = require("geo.mod/logic/model/position").Position;
 
 describe("A Point", function () {

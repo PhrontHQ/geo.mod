@@ -1,4 +1,4 @@
-var Component = require("montage/ui/component").Component,
+var Component = require("mod/ui/component").Component,
     BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox,
     Feature = require("geo.mod/logic/model/feature").Feature;
 /**

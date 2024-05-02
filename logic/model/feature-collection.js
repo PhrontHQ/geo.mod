@@ -1,7 +1,7 @@
-var Montage = require("montage/core/core").Montage,
+var Montage = require("mod/core/core").Montage,
     BoundingBox = require("./bounding-box").BoundingBox,
-    Map = require("montage/core/collections/map"),
-    Set = require("montage/core/collections/set");
+    Map = require("mod/core/collections/map"),
+    Set = require("mod/core/collections/set");
 
 /**
  * A feature collection represents a group of features.  Every

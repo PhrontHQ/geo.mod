@@ -1,4 +1,4 @@
-var Converter = require("montage/core/converter/converter").Converter,
+var Converter = require("mod/core/converter/converter").Converter,
     GeoJsonToGeometryConverter = require("../converter/geo-json-to-geometry-converter").GeoJsonToGeometryConverter,
     Projection = require("../model/projection").Projection,
     topojsonClient = require("topojson-client");

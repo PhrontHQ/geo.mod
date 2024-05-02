@@ -1,7 +1,7 @@
 var Renderer = require("./renderer").Renderer,
-    Criteria = require("montage/core/criteria").Criteria,
+    Criteria = require("mod/core/criteria").Criteria,
     EsriSymbolToStyleConverter = require("../converter/esri-symbol-to-style-converter").EsriSymbolToStyleConverter,
-    Promise = require("montage/core/promise").Promise,
+    Promise = require("mod/core/promise").Promise,
     StyleEntry = require("./style-entry").StyleEntry;
 
 /**

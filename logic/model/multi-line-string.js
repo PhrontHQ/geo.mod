@@ -1,7 +1,7 @@
 var Geometry = require("./geometry").Geometry,
     BoundingBox = require("./bounding-box").BoundingBox,
     LineString = require("./line-string").LineString,
-    Map = require("montage/core/collections/map");
+    Map = require("mod/core/collections/map");
 
 /**
  *

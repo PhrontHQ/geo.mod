@@ -1,7 +1,7 @@
-var Enumeration = require("montage/data/model/enumeration").Enumeration,
+var Enumeration = require("mod/data/model/enumeration").Enumeration,
     BoundingBox = require("./bounding-box").BoundingBox,
     Position = require("./position").Position,
-    Promise = require("montage/core/promise").Promise,
+    Promise = require("mod/core/promise").Promise,
     Units = require("./units").Units,
     proj4 = require("proj4");
 

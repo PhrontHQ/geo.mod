@@ -1,6 +1,6 @@
 var HALF_PI = Math.PI / 180.0,
     Position,
-    Uuid = require("montage/core/uuid").Uuid,
+    Uuid = require("mod/core/uuid").Uuid,
     DASH_REG_EX = /-/g,
     IDENTIFIER_PREFIX = "P";
 

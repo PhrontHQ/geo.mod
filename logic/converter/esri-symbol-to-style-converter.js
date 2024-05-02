@@ -1,9 +1,9 @@
-var Converter = require("montage/core/converter/converter").Converter,
+var Converter = require("mod/core/converter/converter").Converter,
     Color = require("../model/color").Color,
-    Enumeration = require("montage/data/model/enumeration").Enumeration,
+    Enumeration = require("mod/data/model/enumeration").Enumeration,
     Icon = require("../model/icon").Icon,
     Point2D = require("../model/point-2d").Point2D,
-    Promise = require("montage/core/promise").Promise,
+    Promise = require("mod/core/promise").Promise,
     Size = require("../model/size").Size,
     Style = require("../model/style").Style;
 

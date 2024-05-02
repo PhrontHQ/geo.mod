@@ -1,9 +1,9 @@
-var Component = require("montage/ui/component").Component,
+var Component = require("mod/ui/component").Component,
     BoundingBox = require("logic/model/bounding-box").BoundingBox,
     LeafletEngine = require("ui/leaflet-engine.reel").LeafletEngine,
     Point = require("logic/model/point").Point,
     Position = require("logic/model/position").Position,
-    Promise = require("montage/core/promise").Promise;
+    Promise = require("mod/core/promise").Promise;
 
 var MAX_BOUNDS = BoundingBox.withCoordinates(
     -Infinity, -85.05112878, Infinity, 85.05112878
