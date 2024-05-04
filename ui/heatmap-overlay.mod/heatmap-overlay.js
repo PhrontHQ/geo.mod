@@ -10,19 +10,19 @@ var Overlay = require("ui/overlay").Overlay,
  * @class HeatmapOverlay
  * @extends Component
  */
-exports.HeatmapOverlay = Overlay.specialize(/** @lends HeatmapOverlay.prototype */{
+exports.HeatmapOverlay = class HeatmapOverlay extends Overlay {/** @lends HeatmapOverlay.prototype */
+    constructor() {
+        super();
+        var self = this,
+            redraw = function () {
+                self.needsDraw = true;
+            };
+        this.addRangeAtPathChangeListener("collection.features", redraw);
+    }
+}
 
-    constructor: {
-        value: function HeatmapOverlay() {
-            var self = this,
-                redraw = function () {
-                    self.needsDraw = true;
-                };
-            Overlay.call(this);
-            this.addRangeAtPathChangeListener("collection.features", redraw);
-        }
-    },
-
+exports.HeatmapOverlay.addClassProperties(
+{
     /**************************************************************************
      * Properties
      */

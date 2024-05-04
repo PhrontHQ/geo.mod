@@ -1,6 +1,6 @@
 var Component = require("mod/ui/component").Component,
     BoundingBox = require("logic/model/bounding-box").BoundingBox,
-    LeafletEngine = require("ui/leaflet-engine.reel").LeafletEngine,
+    LeafletEngine = require("ui/leaflet-engine.mod").LeafletEngine,
     Point = require("logic/model/point").Point,
     Position = require("logic/model/position").Position,
     Promise = require("mod/core/promise").Promise;

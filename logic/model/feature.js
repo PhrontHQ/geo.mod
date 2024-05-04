@@ -15,10 +15,6 @@ var Montage = require("mod/core/core").Montage,
  */
 exports.Feature = Montage.specialize(/** @lends Feature.prototype */ {
 
-    constructor: {
-        value: function Feature() {}
-    },
-
     /**
      * If a Feature has a commonly used identifier, that identifier
      * SHOULD be included as a member of the Feature object with the name
