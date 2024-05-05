@@ -23,7 +23,7 @@
         "geo.mod": "../"
     },
     "dependencies": {
-        "mod": "github:PhrontHQ/mod#mod"
+        "mod": "github:PhrontHQ/mod#main"
     },
     "private": true
 }
