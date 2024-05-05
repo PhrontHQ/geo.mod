@@ -1,11 +1,11 @@
-var BoundingBox = require("montage-geo/logic/model/bounding-box").BoundingBox,
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Point = require("montage-geo/logic/model/point").Point,
-    LineString = require("montage-geo/logic/model/line-string").LineString,
-    MultiLineString = require("montage-geo/logic/model/multi-line-string").MultiLineString,
-    MultiPoint = require("montage-geo/logic/model/multi-point").MultiPoint,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
-    Position = require("montage-geo/logic/model/position").Position;
+var BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox,
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Point = require("geo.mod/logic/model/point").Point,
+    LineString = require("geo.mod/logic/model/line-string").LineString,
+    MultiLineString = require("geo.mod/logic/model/multi-line-string").MultiLineString,
+    MultiPoint = require("geo.mod/logic/model/multi-point").MultiPoint,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer,
+    Position = require("geo.mod/logic/model/position").Position;
 
 describe("A BoundingBox", function () {
 
@@ -135,6 +135,19 @@ describe("A BoundingBox", function () {
 
         expect(bounds.contains(inPosition)).toBe(true);
         expect(bounds.contains(outPosition)).toBe(false);
+    });
+
+    it("can test if it contains a bounding box", function () {
+        var bounds = BoundingBox.withCoordinates(0, 0, 10, 10),
+            inBoundingBoxA = BoundingBox.withCoordinates(1, 1, 9, 9),
+            inBoundingBoxB = BoundingBox.withCoordinates(0, 0, 5, 5),
+            outBoundingBoxA = BoundingBox.withCoordinates(5, 5, 15, 15),
+            outBoundingBoxB = BoundingBox.withCoordinates(11, 11, 21, 21);
+
+        expect(bounds.contains(inBoundingBoxA)).toBe(true);
+        expect(bounds.contains(inBoundingBoxB)).toBe(true);
+        expect(bounds.contains(outBoundingBoxA)).toBe(false);
+        expect(bounds.contains(outBoundingBoxB)).toBe(false);
     });
 
     it ("can calculate its area", function () {

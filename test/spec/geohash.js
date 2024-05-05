@@ -1,4 +1,4 @@
-var Geohash = require("montage-geo/logic/model/geohash").Geohash;
+var Geohash = require("geo.mod/logic/model/geohash").Geohash;
 
 
 describe("A Geohash", function () {

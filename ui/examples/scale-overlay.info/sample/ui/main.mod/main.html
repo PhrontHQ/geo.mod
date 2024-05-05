@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Scale Overlay Example
+    </title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "values": {
+                "element": {"#": "main"}
+            }
+        },
+        "map": {
+            "prototype": "geo.mod/ui/map.mod",
+            "values": {
+                "element": {"#": "map"},
+                "center": [-156.6825, 20.8783],
+                "zoom": 5
+            }
+        },
+        "scaleOverlay": {
+            "prototype": "geo.mod/ui/scale-overlay.mod",
+            "values": {
+                "element": {"#": "scaleOverlay"},
+                "position": {"<-": "@map.center"},
+                "zoom": {"<-": "@map.zoom"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="main" class="Main">
+        <div data-mod-id="map" class="Main-map"></div>
+        <div data-mod-id="scaleOverlay" class="Main-scaleOverlay"></div>
+    </div>
+</body>
+</html>

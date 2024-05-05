@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="scale-overlay.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "values": {
+                "element": {"#": "owner"},
+                "_imperialTab": {"#": "imperialTab"},
+                "_line": {"#": "line"},
+                "_metricTab": {"#": "metricTab"},
+                "_scale": {"#": "scale"}
+            },
+            "localizations": {
+                "_feetAbbreviation": {
+                    "key": "feet_abbreviation",
+                    "default": "ft"
+                },
+                "_milesAbbreviation": {
+                    "key": "miles_abbreviation",
+                    "default": "mi"
+                },
+                "_kilometersAbbreviation": {
+                    "key": "kilometers_abbreviation",
+                    "default": "km"
+                },
+                "_metersAbbreviation": {
+                    "key": "meters_abbreviation",
+                    "default": "m"
+                }
+            }
+        },
+        "imperialDistanceValue": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "imperialDistanceValue"},
+                "value": {"<-": "@owner._imperialDistanceValue"}
+            }
+        },
+        "latitudeLabel": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "latitudeLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "latitude_abbreviation",
+                    "default": "Lat"
+                }
+            }
+        },
+        "latitudeValue": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "latitudeValue"},
+                "converter": {"<-": "@owner._coordinateConverter"},
+                "value": {"<-": "@owner.position.latitude"}
+            }
+        },
+        "longitudeLabel": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "longitudeLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "longitude_abbreviation",
+                    "default": "Lon"
+                }
+            }
+        },
+        "longitudeValue": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "longitudeValue"},
+                "converter": {"<-": "@owner._coordinateConverter"},
+                "value": {"<-": "@owner.position.longitude"}
+            }
+        },
+        "mgrsLabel": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "mgrsLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "mgrs_label",
+                    "default": "MGRS"
+                }
+            }
+        },
+        "mgrsValue": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "mgrsValue"},
+                "_point": {"<-": "@owner._point"},
+                "value": {"<-": "_point.defined() && _point.coordinates.defined() ? _point.mgrs() : ''"}
+            }
+        },
+        "metricDistanceValue": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "metricDistanceValue"},
+                "value": {"<-": "@owner._metricDistanceValue"}
+            }
+        },
+        "scaleLabel": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "scaleLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "map_scale",
+                    "default": "Scale"
+                }
+            }
+        },
+        "scaleValue": {
+            "prototype": "mod/ui/text.mod",
+            "values": {
+                "element": {"#": "scaleValue"},
+                "value": {"<-": "@owner._scaleValue"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="montageGeo-ScaleOverlay">
+        <div data-mod-id="scale" class="montageGeo-ScaleOverlay-item montageGeo-ScaleOverlay-scale">
+            <div data-mod-id="imperialDistanceValue"></div>
+            <div data-mod-id="metricDistanceValue"></div>
+            <div data-mod-id="line" class="montageGeo-ScaleOverlay-scaleLine"></div>
+            <div class="montageGeo-ScaleOverlay-scaleLine-tabTop montageGeo-ScaleOverlay-scaleLine-tab"></div>
+            <div class="montageGeo-ScaleOverlay-scaleLine-tabBottom montageGeo-ScaleOverlay-scaleLine-tab"></div>
+            <div data-mod-id="imperialTab" class="montageGeo-ScaleOverlay-scaleLine-tabTop montageGeo-ScaleOverlay-scaleLine-tab"></div>
+            <div data-mod-id="metricTab" class="montageGeo-ScaleOverlay-scaleLine-tabBottom montageGeo-ScaleOverlay-scaleLine-tab"></div>
+        </div>
+        <div class="montageGeo-ScaleOverlay-item">
+            <div data-mod-id="scaleLabel" class="montageGeo-ScaleOverlay-label"></div>
+            <div data-mod-id="scaleValue" class="montageGeo-ScaleOverlay-value"></div>
+        </div>
+        <div class="montageGeo-ScaleOverlay-item">
+            <div data-mod-id="latitudeLabel" class="montageGeo-ScaleOverlay-label"></div>
+            <div data-mod-id="latitudeValue" class="montageGeo-ScaleOverlay-value"></div>
+        </div>
+        <div class="montageGeo-ScaleOverlay-item">
+            <div data-mod-id="longitudeLabel" class="montageGeo-ScaleOverlay-label"></div>
+            <div data-mod-id="longitudeValue" class="montageGeo-ScaleOverlay-value"></div>
+        </div>
+        <div class="montageGeo-ScaleOverlay-item">
+            <div data-mod-id="mgrsLabel" class="montageGeo-ScaleOverlay-label"></div>
+            <div data-mod-id="mgrsValue" class="montageGeo-ScaleOverlay-value"></div>
+        </div>
+    </div>
+</body>
+</html>

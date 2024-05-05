@@ -1,6 +1,6 @@
-var Montage = require("montage").Montage,
-    Map = require("montage/collections/map"),
-    Set = require("montage/collections/set");
+var Montage = require("mod").Montage,
+    Map = require("mod/core/collections/map"),
+    Set = require("mod/core/collections/set");
 
 /**
  * @class ClusterManager

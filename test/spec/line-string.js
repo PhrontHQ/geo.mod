@@ -1,9 +1,9 @@
-var LineString = require("montage-geo/logic/model/line-string").LineString,
-    Bindings = require("montage-geo/frb/bindings"),
-    BoundingBox = require("montage-geo/logic/model/bounding-box").BoundingBox,
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Position = require("montage-geo/logic/model/position").Position,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;
+var LineString = require("geo.mod/logic/model/line-string").LineString,
+    Bindings = require("mod/core/frb/bindings"),
+    BoundingBox = require("geo.mod/logic/model/bounding-box").BoundingBox,
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Position = require("geo.mod/logic/model/position").Position,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer;
 
 describe("A LineString", function () {
 

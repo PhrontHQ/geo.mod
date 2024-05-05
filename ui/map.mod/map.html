@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="map.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "engine": {
+            "prototype": "mod/ui/slot.mod",
+            "properties": {
+                "element": {"#": "engine"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner._engine"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="montageGeo-Map">
+        <div data-mod-id="engine" class="montageGeo-Map-engine"></div>
+    </div>
+</body>
+</html>

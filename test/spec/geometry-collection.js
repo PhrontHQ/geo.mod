@@ -1,6 +1,6 @@
-var GeometryCollection = require("montage-geo/logic/model/geometry-collection").GeometryCollection,
-    LineString = require("montage-geo/logic/model/line-string").LineString,
-    Point = require("montage-geo/logic/model/point").Point;
+var GeometryCollection = require("geo.mod/logic/model/geometry-collection").GeometryCollection,
+    LineString = require("geo.mod/logic/model/line-string").LineString,
+    Point = require("geo.mod/logic/model/point").Point;
 
 describe("A GeometryCollection", function () {
 

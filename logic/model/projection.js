@@ -1,8 +1,8 @@
-var Enumeration = require("montage/data/model/enumeration").Enumeration,
-    BoundingBox = require("logic/model/bounding-box").BoundingBox,
-    Position = require("logic/model/position").Position,
-    Promise = require("montage/core/promise").Promise,
-    Units = require("logic/model/units").Units,
+var Enumeration = require("mod/data/model/enumeration").Enumeration,
+    BoundingBox = require("./bounding-box").BoundingBox,
+    Position = require("./position").Position,
+    Promise = require("mod/core/promise").Promise,
+    Units = require("./units").Units,
     proj4 = require("proj4");
 
 
@@ -174,7 +174,7 @@ exports.Projection = Enumeration.specialize("", /** @lends Projection.prototype 
     },
 
     _fetch: {
-        //TODO Make Projection a first level montage-data type and perform the fetch in a service
+        //TODO Make Projection a first level mod-data type and perform the fetch in a service
         value: function (url) {
             var self = this,
                 xhr;

@@ -1,0 +1,11 @@
+{
+    "name": "Basic Map Test",
+    "version": "0.1.0",
+    "description": "",
+    "mappings": {
+        "mod": "../../../../node_modules/mod",
+        "geo.mod": "../../../../"
+    },
+    "manifest": true
+}
+

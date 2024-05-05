@@ -1,9 +1,9 @@
-var Position = require("montage-geo/logic/model/position").Position,
-    Component = require("montage/ui/component").Component,
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Projection = require("montage-geo/logic/model/projection").Projection,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
-    Set = require("montage/collections/set").Set;
+var Position = require("geo.mod/logic/model/position").Position,
+    Component = require("mod/ui/component").Component,
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Projection = require("geo.mod/logic/model/projection").Projection,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer,
+    Set = require("mod/core/collections/set").Set;
 
 describe("A Position", function () {
 

@@ -1,19 +1,18 @@
 {
-  "name": "montage-geo",
-  "version": "0.1.0",
-  "author": "Montage Studio, inc. (http://montagestudio.com/)",
-  "description": "Montage resources to build geospatial applications",
+  "name": "geo.mod",
+  "version": "1.0",
+  "author": "Guardians of Mod",
+  "description": "Mod to build geospatial applications",
   "dependencies": {
-    "collections": "~5.0.x",
     "d3-geo": "^1.6.3",
-    "frb": "~4.0.x",
-    "montage": "montagejs/montage.git#17.2.4",
+    "leaflet": "~1.9.x",
+    "mod": "github:PhrontHQ/mod#main",
     "proj4": "~2.3.6",
     "topojson-client": "^3.0.0"
   },
   "devDependencies": {
     "concurrently": "^3.4.0",
-    "http-server": "^0.9.0",
+    "http-server": "^14.1.0",
     "jasmine-console-reporter": "^1.2.7",
     "jasmine-core": "^2.5.2",
     "karma": "^1.5.0",
@@ -22,8 +21,6 @@
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
-    "montage-testing": "hthetiot/montage-testing#upgrade",
-    "mr": "montagejs/mr#master",
     "open": "0.0.5"
   },
   "scripts": {
@@ -34,9 +31,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/montagejs/montage-geo.git"
+    "url": "git+https://github.com/PhrontHQ/geo.mod.git"
   },
   "keywords": [
+    "Mod",
     "MontageJS",
     "Geospatial",
     "Maps",
@@ -47,7 +45,7 @@
   ],
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/montagejs/montage-geo/issues"
+    "url": "https://github.com/PhrontHQ/geo.mod/issues"
   },
-  "homepage": "https://github.com/montagejs/montage-geo#readme"
+  "homepage": "https://github.com/PhrontHQ/geo.mod#readme"
 }

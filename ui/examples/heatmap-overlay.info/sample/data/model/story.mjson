@@ -1,0 +1,55 @@
+{
+
+    "root": {
+        "prototype": "mod/core/meta/module-object-descriptor",
+        "properties": {
+            "name": "Story",
+            "propertyDescriptors": [
+                {"@": "id"},
+                {"@": "body"},
+                {"@": "geometry"},
+                {"@": "title"},
+                {"@": "url"}
+            ],
+            "exportName": "Story",
+            "module": {
+                "%": "logic/model/story"
+            }
+        }
+    },
+    "id": {
+        "prototype": "mod/core/meta/property-descriptor",
+        "properties": {
+            "name": "id",
+            "valueType": "number"
+        }
+    },
+    "body": {
+        "prototype": "mod/core/meta/property-descriptor",
+        "properties": {
+            "name": "body",
+            "valueType": "string"
+        }
+    },
+    "geometry": {
+        "prototype": "mod/core/meta/property-descriptor",
+        "properties": {
+            "name": "geometry",
+            "valueType": "Geometry"
+        }
+    },
+    "title": {
+        "prototype": "mod/core/meta/property-descriptor",
+        "properties": {
+            "name": "title",
+            "valueType": "string"
+        }
+    },
+    "url": {
+        "prototype": "mod/core/meta/property-descriptor",
+        "properties": {
+            "name": "url",
+            "valueType": "string"
+        }
+    }
+}

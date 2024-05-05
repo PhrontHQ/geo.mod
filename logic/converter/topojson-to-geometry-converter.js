@@ -1,6 +1,6 @@
-var Converter = require("montage/core/converter/converter").Converter,
-    GeoJsonToGeometryConverter = require("logic/converter/geo-json-to-geometry-converter").GeoJsonToGeometryConverter,
-    Projection = require("logic/model/projection").Projection,
+var Converter = require("mod/core/converter/converter").Converter,
+    GeoJsonToGeometryConverter = require("../converter/geo-json-to-geometry-converter").GeoJsonToGeometryConverter,
+    Projection = require("../model/projection").Projection,
     topojsonClient = require("topojson-client");
 
 /**
@@ -9,7 +9,7 @@ var Converter = require("montage/core/converter/converter").Converter,
  * @extends Converter
  */
 exports.TopojsonToGeometryConverter = Converter.specialize( /** @lends TopojsonToGeometryConverter# */ {
-    
+
     /**
      * Converts the specified value to either a Montage-Geo FeatureCollection
      * or GeometryCollection.
@@ -29,7 +29,7 @@ exports.TopojsonToGeometryConverter = Converter.specialize( /** @lends TopojsonT
             return converter.convert(geoJson);
         }
     },
-    
+
     /**
      * Reverts a Montage-Geo object to topojson.
      * @function
@@ -72,11 +72,11 @@ exports.TopojsonToGeometryConverter = Converter.specialize( /** @lends TopojsonT
             }, value);
         }
     },
-    
+
     /**************************************************************************
      * Serialization
      */
-    
+
     serializeSelf: {
         value: function (serializer) {
             if (this.projection) {
@@ -85,7 +85,7 @@ exports.TopojsonToGeometryConverter = Converter.specialize( /** @lends TopojsonT
             serializer.setProperty("keyPath", this.keyPath);
         }
     },
-    
+
     deserializeSelf: {
         value: function (deserializer) {
             var srid = deserializer.getProperty("projection");
@@ -95,6 +95,6 @@ exports.TopojsonToGeometryConverter = Converter.specialize( /** @lends TopojsonT
             this.keyPath = deserializer.getProperty("keyPath");
         }
     }
-    
+
 });
 

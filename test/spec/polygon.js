@@ -1,8 +1,8 @@
-var Polygon = require("montage-geo/logic/model/polygon").Polygon,
-    Bindings = require("montage-geo/frb/bindings"),
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Position = require("montage-geo/logic/model/position").Position,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;
+var Polygon = require("geo.mod/logic/model/polygon").Polygon,
+    Bindings = require("mod/core/frb/bindings"),
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Position = require("geo.mod/logic/model/position").Position,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer;
 
 describe("A Polygon", function () {
 
@@ -62,6 +62,9 @@ describe("A Polygon", function () {
             p1 = Position.withCoordinates([0, 20]),
             p2 = Position.withCoordinates([20, 20]),
             p3 = Position.withCoordinates([20, 0]),
+            p4 = Position.withCoordinates([0, 30]),
+            p5 = Position.withCoordinates([30, 30]),
+            p6 = Position.withCoordinates([30, 0]),
             controller = {
                 polygon: polygon,
                 area: undefined
@@ -72,6 +75,8 @@ describe("A Polygon", function () {
         expect(Math.round(controller.area / 1000)).toBe(1233);
         coordinates.splice.apply(coordinates, [1, 3].concat([p1, p2, p3]));
         expect(Math.round(controller.area / 1000)).toBe(4857);
+        polygon.coordinates = [[polygon.coordinates[0][0], p4, p5, p6, polygon.coordinates[0][0]]];
+        expect(Math.round(controller.area / 1000)).toBe(10650);
     });
 
     it("can properly calculate its perimeter", function () {
@@ -88,6 +93,9 @@ describe("A Polygon", function () {
             p1 = Position.withCoordinates([0, 20]),
             p2 = Position.withCoordinates([10, 20]),
             p3 = Position.withCoordinates([10, 0]),
+            p4 = Position.withCoordinates([0, 30]),
+            p5 = Position.withCoordinates([30, 30]),
+            p6 = Position.withCoordinates([30, 0]),
             controller = {
                 polygon: polygon,
                 perimeter: undefined
@@ -98,6 +106,8 @@ describe("A Polygon", function () {
         expect(Math.round(controller.perimeter / 1000)).toBe(4431);
         coordinates.splice.apply(coordinates, [1, 3].concat([p1, p2, p3]));
         expect(Math.round(controller.perimeter / 1000)).toBe(6604);
+        polygon.coordinates = [[polygon.coordinates[0][0], p4, p5, p6, polygon.coordinates[0][0]]];
+        expect(Math.round(controller.perimeter / 1000)).toBe(12888);
     });
 
     it("can calculate the bounds of a small polygon", function () {
@@ -201,6 +211,37 @@ describe("A Polygon", function () {
                 [[5,5], [5,15], [15,15], [15,5], [5,5]]
             ]);
         expect(p1.intersects(p2)).toBe(true);
+    });
+
+    it("can observe tests for intersection", function () {
+        var p1 = Polygon.withCoordinates([
+                [[0,0], [0,10], [10,10], [10,0], [0,0]]
+            ]),
+            p2 = Polygon.withCoordinates([
+                [[5,5], [5,15], [15,15], [15,5], [5,5]]
+            ]),
+            p3 = Polygon.withCoordinates([
+                [[-10,0], [-10,10], [0,10], [0,0], [-10,0]]
+            ]),
+            p4 = Polygon.withCoordinates([
+                [[-5,5], [-5,15], [5,15], [5,5], [-5,5]]
+            ]),
+            p4Perimeter = p4.coordinates[0].slice(),
+            controller = {
+                intersects: false,
+                geometry: p2,
+                polygon: p1
+            };
+        Bindings.defineBinding(controller, "intersects", {"<-": "polygon.intersects(geometry)"});
+        expect(controller.intersects).toBeTruthy();
+        controller.geometry = p3;
+        expect(controller.intersects).toBeFalsy();
+        controller.polygon = p4;
+        expect(controller.intersects).toBeTruthy();
+        controller.polygon.coordinates.splice.apply(controller.polygon.coordinates, [0, Infinity].concat(p1.coordinates));
+        expect(controller.intersects).toBeFalsy();
+        controller.polygon.coordinates[0].splice.apply(controller.polygon.coordinates[0], [0, Infinity].concat(p4Perimeter));
+        expect(controller.intersects).toBeTruthy();
     });
 
     it("can test another if polygon is in a hole", function () {

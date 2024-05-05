@@ -1,6 +1,6 @@
-var Montage = require("montage/core/core").Montage,
-    GeohashCollection = require("logic/model/geohash-collection").GeohashCollection,
-    Uuid = require("montage/core/uuid").Uuid,
+var Montage = require("mod/core/core").Montage,
+    GeohashCollection = require("./geohash-collection").GeohashCollection,
+    Uuid = require("mod/core/uuid").Uuid,
     DASH_REG_EX = /-/g,
     IDENTIFIER_PREFIX = "B";
 
@@ -215,13 +215,30 @@ exports.BoundingBox = Montage.specialize(/** @lends BoundingBox.prototype */ {
 
     /**
      * Determines whether or not the bounds contains the
-     * position.
+     * parameter.
      *
      * @method
-     * @param {Position} position - The position to test.
+     * @param {Position|BoundingBox} positionOrBounds - The item to test.
      * @returns {boolean}
      */
     contains: {
+        value: function (positionOrBounds) {
+            var isBoundingBox = positionOrBounds instanceof exports.BoundingBox;
+            return  isBoundingBox ? this._containsBoundingBox(positionOrBounds) :
+                                    this._containsPosition(positionOrBounds);
+        }
+    },
+
+    _containsBoundingBox: {
+        value: function (bounds) {
+            return  bounds.xMax <= this.xMax &&
+                    bounds.xMin >= this.xMin &&
+                    bounds.yMax <= this.yMax &&
+                    bounds.yMin >= this.yMin;
+        }
+    },
+
+    _containsPosition: {
         value: function (position) {
             var lng = position.longitude,
                 lat = position.latitude;

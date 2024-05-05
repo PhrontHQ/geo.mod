@@ -42,7 +42,7 @@
  * Bindings) project.
  *
  * @external FrbExpression
- * @see {@linkplain https://github.com/montagejs/frb}
+ * @see {@linkplain https://github.com/PhrontHQ/mod/core/frb}
  */
 
 /**
@@ -65,7 +65,7 @@
  * A CommonJS module system for the front-end.
  *
  * @external Require
- * @see {@linkplain https://github.com/montagejs/mr}
+ * @see {@linkplain https://github.com/PhrontHQ/mod/core/mr}
  */
 
 /**

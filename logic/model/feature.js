@@ -1,4 +1,4 @@
-var Montage = require("montage/core/core").Montage,
+var Montage = require("mod/core/core").Montage,
     LineString = require("./line-string").LineString,
     MultiLineString = require("./multi-line-string").MultiLineString,
     MultiPolygon = require("./multi-polygon").MultiPolygon,
@@ -14,10 +14,6 @@ var Montage = require("montage/core/core").Montage,
  * @extends external:Montage
  */
 exports.Feature = Montage.specialize(/** @lends Feature.prototype */ {
-
-    constructor: {
-        value: function Feature() {}
-    },
 
     /**
      * If a Feature has a commonly used identifier, that identifier
@@ -147,13 +143,15 @@ exports.Feature = Montage.specialize(/** @lends Feature.prototype */ {
      * @param {object|null} properties      - The properties member of this feature.
      * @param {Geometry|null} geometry      - The geometry for this feature.  Null if the
      *                                        feature does not have a location.
+     * @param {Style|null} style            - The style definition for this feature.
      */
     withMembers: {
-        value: function (id, properties, geometry) {
+        value: function (id, properties, geometry, style) {
             var self = new this();
             if (id) self.id = id;
             self.properties = properties || null;
             self.geometry = geometry || null;
+            self.style = style || null;
             return self;
         }
     }

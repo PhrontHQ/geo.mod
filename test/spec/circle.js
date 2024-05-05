@@ -1,9 +1,9 @@
-var Circle = require("montage-geo/logic/model/circle").Circle,
-    Bindings = require("montage-geo/frb/bindings"),
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Point = require("montage-geo/logic/model/point").Point,
-    Position = require("montage-geo/logic/model/position").Position,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer;
+var Circle = require("geo.mod/logic/model/circle").Circle,
+    Bindings = require("mod/core/frb/bindings"),
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Point = require("geo.mod/logic/model/point").Point,
+    Position = require("geo.mod/logic/model/position").Position,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer;
 
 describe("A Circle", function () {
 
@@ -101,6 +101,28 @@ describe("A Circle", function () {
         expect(controller.bounds.bbox.map(function (direction) {
             return direction.toFixed(2);
         }).join(":")).toBe("-156.73:20.83:-156.63:20.92");
+    });
+
+    it("can observe tests for intersections", function () {
+        var coordinates = [-156.6825, 20.8783],
+            radius = 10000,
+            circle = Circle.withCoordinates(coordinates, radius),
+            geometryCoordinates = [0, 0],
+            geometryRadius = 1000,
+            geometry = Circle.withCoordinates(geometryCoordinates, geometryRadius),
+            controller = {
+                circle: circle,
+                geometry: geometry,
+                intersects: undefined
+            };
+        Bindings.defineBinding(controller, "intersects", {"<-": "circle.intersects(geometry)"});
+        expect(controller.intersects).toBeFalsy();
+        controller.circle.coordinates = Position.withCoordinates(0, 0);
+        expect(controller.intersects).toBeTruthy();
+        controller.circle.coordinates = Position.withCoordinates(coordinates);
+        expect(controller.intersects).toBeFalsy();
+        controller.geometry = Circle.withCoordinates(coordinates, geometryRadius);
+        expect(controller.intersects).toBeTruthy();
     });
 
     it("can calculate its area", function () {

@@ -1,6 +1,8 @@
 var Geometry = require("./geometry").Geometry,
-    BoundingBox = require("logic/model/bounding-box").BoundingBox,
+    BoundingBox = require("./bounding-box").BoundingBox,
+    Circle = require("./circle").Circle,
     d3Geo = require("d3-geo"),
+    Point = require("./point").Point,
     Position = require("./position").Position;
 
 /**
@@ -106,9 +108,15 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
      */
     intersects: {
         value: function (geometry) {
-            var isPolygon = geometry instanceof exports.Polygon;
-            return isPolygon ?  this._intersectsPolygon(geometry) :
-                                this._intersectsBoundingBox(geometry);
+            var isMultiPolygon = geometry instanceof exports.Polygon.MultiPolygon,
+                isPolygon = geometry instanceof exports.Polygon,
+                isCircle = !isPolygon && geometry instanceof Circle,
+                isPoint = !isCircle && geometry instanceof Point;
+            return  isMultiPolygon ?    geometry.intersects(this) :
+                    isPolygon ?         this._intersectsPolygon(geometry) :
+                    isCircle ?          this._intersectsPolygon(geometry.toPolygon()) :
+                    isPoint ?           this.contains(geometry.coordinates) :
+                                        this._intersectsBoundingBox(geometry);
         }
     },
 
@@ -170,6 +178,7 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
         value: function (emit) {
             var callback = this.area.bind(this),
                 coordinates = this.coordinates,
+                coordinatesPathChangeListener,
                 ringsHandler, ringHandlers = [],
                 cancel;
 
@@ -191,7 +200,7 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
                     canceller();
                 }
             }
-
+            coordinatesPathChangeListener = this.addPathChangeListener("coordinates", update);
             function initializeObservers() {
                 ringsHandler = coordinates.addRangeChangeListener(update);
                 coordinates.forEach(function (ring) {
@@ -201,6 +210,7 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
 
             update();
             return function cancelObserver() {
+                coordinatesPathChangeListener();
                 clearObservers();
                 if (cancel) {
                     cancel();
@@ -274,10 +284,50 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
         }
     },
 
+    makeIntersectsObserver: {
+        value: function (observeIntersects) {
+            var self = this;
+            return function intersectsObserver(emit, scope) {
+                return observeIntersects(function replaceGeometry(geometry) {
+                    return self.observeIntersects(emit, geometry);
+                }, scope);
+            }.bind(this);
+        }
+    },
+
+    observeIntersects: {
+        value: function (emit, geometry) {
+            var callback = this.intersects.bind(this),
+                coordinatesRangeChangeListener,
+                perimeterRangeChangeListener,
+                cancel;
+
+            function update() {
+                if (cancel) {
+                    cancel();
+                }
+                cancel = emit(callback(geometry));
+            }
+
+            update();
+            coordinatesRangeChangeListener = this.addRangeAtPathChangeListener("coordinates", update);
+            perimeterRangeChangeListener = this.addRangeAtPathChangeListener("coordinates.0", update);
+
+            return function cancelObserver() {
+                coordinatesRangeChangeListener();
+                perimeterRangeChangeListener();
+                if (cancel) {
+                    cancel();
+                }
+            };
+        }
+    },
+
     observePerimeter: {
         value: function (emit) {
             var callback = this.perimeter.bind(this),
                 coordinates = this.coordinates,
+                coordinatesPathChangeListener,
                 rangeChangeListener,
                 cancel;
 
@@ -295,7 +345,7 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
                     rangeChangeListener();
                 }
             }
-
+            coordinatesPathChangeListener = this.addPathChangeListener("coordinates", update);
             function initializeObserver() {
                 if (coordinates && coordinates.length) {
                     rangeChangeListener = coordinates[0].addRangeChangeListener(update);
@@ -304,6 +354,7 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
 
             update();
             return function cancelObserver() {
+                coordinatesPathChangeListener();
                 clearObserver();
                 if (cancel) {
                     cancel();
@@ -454,6 +505,12 @@ var Polygon = exports.Polygon = Geometry.specialize(/** @lends Polygon.prototype
     }
 
 }, {
+
+    MultiPolygon: {
+        get: function () {
+            return require("logic/model/multi-polygon").MultiPolygon
+        }
+    },
 
     GeoJsonConverter: {
         get: function () {

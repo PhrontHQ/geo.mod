@@ -1,9 +1,9 @@
-var Icon = require("montage-geo/logic/model/icon").Icon,
-    Deserializer = require("montage/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
-    Point2D = require("montage-geo/logic/model/point-2d").Point2D,
-    Serializer = require("montage/core/serialization/serializer/montage-serializer").MontageSerializer,
-    Size = require("montage-geo/logic/model/size").Size;
-    
+var Icon = require("geo.mod/logic/model/icon").Icon,
+    Deserializer = require("mod/core/serialization/deserializer/montage-deserializer").MontageDeserializer,
+    Point2D = require("geo.mod/logic/model/point-2d").Point2D,
+    Serializer = require("mod/core/serialization/serializer/montage-serializer").MontageSerializer,
+    Size = require("geo.mod/logic/model/size").Size;
+
 
 describe("Icon", function () {
 
@@ -11,13 +11,13 @@ describe("Icon", function () {
         HEIGHT = 40,
         WIDTH = 24,
         icon, anchor, size;
-    
+
     beforeEach(function () {
         anchor = Point2D.withCoordinates(WIDTH / 2, HEIGHT / 2);
         size = Size.withHeightAndWidth(HEIGHT, WIDTH);
         icon = Icon.withSymbolAnchorAndSize(DEFAULT_MARKER, anchor, size);
     });
-    
+
     it("can be created", function () {
         expect(icon).toBeDefined();
         expect(icon.anchor).toBeDefined();
@@ -29,18 +29,18 @@ describe("Icon", function () {
         expect(icon.width).toBe(WIDTH);
         expect(icon.height).toBe(HEIGHT);
     });
-    
+
     it("can be serialized", function () {
         var serializer = new Serializer().initWithRequire(require),
             serialized = serializer.serializeObject(icon);
         expect(serialized).not.toBeNull();
     });
-    
+
     it("can be deserialized", function (done) {
 
         var serializer = new Serializer().initWithRequire(require),
             serialized = serializer.serializeObject(icon);
-        
+
         new Deserializer().init(serialized, require).deserializeObject()
             .then(function (deserialized) {
                     expect(deserialized.anchor.x).toBe(WIDTH / 2);
@@ -52,6 +52,6 @@ describe("Icon", function () {
                 }
             );
     });
-    
-    
+
+
 });

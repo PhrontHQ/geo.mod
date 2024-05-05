@@ -1,11 +1,11 @@
-var Converter = require("montage/core/converter/converter").Converter,
-    Color = require("logic/model/color").Color,
-    Enumeration = require("montage/data/model/enumeration").Enumeration,
-    Icon = require("logic/model/icon").Icon,
-    Point2D = require("logic/model/point-2d").Point2D,
-    Promise = require("montage/core/promise").Promise,
-    Size = require("logic/model/size").Size,
-    Style = require("logic/model/style").Style;
+var Converter = require("mod/core/converter/converter").Converter,
+    Color = require("../model/color").Color,
+    Enumeration = require("mod/data/model/enumeration").Enumeration,
+    Icon = require("../model/icon").Icon,
+    Point2D = require("../model/point-2d").Point2D,
+    Promise = require("mod/core/promise").Promise,
+    Size = require("../model/size").Size,
+    Style = require("../model/style").Style;
 
 /**
  * @class EsriSymbolToStyleConverter
@@ -182,6 +182,10 @@ var MarkerIcon = Enumeration.specialize(/** @lends MarkerIcon */ "id", {
         }
     },
 
+    _base64PrefixRegExp: {
+        value: /data:[-\w.]+\/[-\w.]+(\+\w+)?;base64,/
+    },
+
     _canvas: {
         get: function () {
             if (!this.__canvas) {
@@ -227,7 +231,7 @@ var MarkerIcon = Enumeration.specialize(/** @lends MarkerIcon */ "id", {
 
     _dimensionsForUrl: {
         value: function (url) {
-            var data = this._base64Decode(url.substring(22));
+            var data = this._base64Decode(url.replace(this._base64PrefixRegExp, ""));
             return Size.withHeightAndWidth(
                 this._toInt32(data.slice(20, 24)),
                 this._toInt32(data.slice(16, 20))

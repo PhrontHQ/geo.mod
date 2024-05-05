@@ -6,9 +6,9 @@ var Position = require("../model/position").Position,
     MultiLineString = require("../model/multi-line-string").MultiLineString,
     MultiPolygon = require("../model/multi-polygon").MultiPolygon,
     GeometryCollection = require("../model/geometry-collection").GeometryCollection,
-    Converter = require("montage/core/converter/converter").Converter,
-    Enumeration = require("montage/data/model/enumeration").Enumeration,
-    Projection = require("logic/model/projection").Projection,
+    Converter = require("mod/core/converter/converter").Converter,
+    Enumeration = require("mod/data/model/enumeration").Enumeration,
+    Projection = require("../model/projection").Projection,
     WktParser,
     GeometryLayout;
 
@@ -711,6 +711,9 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
             this._setPropertyWithDefaults(serializer, "convertingSRID", this.convertingSRID);
             this._setPropertyWithDefaults(serializer, "revertingSRID", this.revertingSRID);
             this._setPropertyWithDefaults(serializer, "convertingGeometryLayout", this.convertingGeometryLayout);
+            this._setPropertyWithDefaults(serializer, "revertsSRID", this.revertsSRID);
+
+
         }
     },
 
@@ -719,6 +722,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
             this.convertingSRID = this._getPropertyWithDefaults(deserializer, "convertingSRID");
             this.revertingSRID = this._getPropertyWithDefaults(deserializer, "revertingSRID");
             this.convertingGeometryLayout = this._getPropertyWithDefaults(deserializer, "convertingGeometryLayout");
+            this.revertsSRID = this._getPropertyWithDefaults(deserializer, "revertsSRID");
         }
     },
 
@@ -738,7 +742,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
 
     /**
      * The SRID of WKT String being converted to a geometry.
-     * As of now, montage-geo is coded to only handle SRID 4326,
+     * As of now, geo.mod is coded to only handle SRID 4326,
      *
      * and therefore assumes data is coming in that SRID as well.
      *
@@ -906,7 +910,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
                 //geometry being reverted has more dimension than convertingGeometryLayout
                 if((dimInfo.length+2/*adding XY*/ ) > this.convertingGeometryLayout.length) {
                     throw new Error("Geometry being reverted has more dimensions [XY"+dimInfo+"] than converter's convertingGeometryLayout ["+this.convertingGeometryLayout+"]");
-                } else {
+                } else if(dimInfo.length+2 === this.convertingGeometryLayout.length) {
                     /*
                         both sides are the same length, but could be XYM vs XYZ
                     */
@@ -930,7 +934,7 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
               return type + ' ' + EMPTY;
             }
             /*
-                montage-geo only knows how to work in 4326 only for now, which is why post creation
+                geo.mod only knows how to work in 4326 only for now, which is why post creation
                 of the Positions, we don't keep track of the projection used, it got to be 4326.
 
                 When that evolves, this code will need to evolve too, and not just include the right
@@ -1012,12 +1016,12 @@ exports.WktToGeometryConverter = Converter.specialize( /** @lends WktToGeometryC
 
             if((position.hasOwnProperty("altitude") && !convertingGeometryLayout) || (convertingGeometryLayout && convertingGeometryLayout.indexOf("Z") !== -1)) {
                 wktPointValue += " ";
-                wktPointValue += position.altitude;
+                wktPointValue += position.altitude || 0;
             }
 
             if(position.measure && (!convertingGeometryLayout || (convertingGeometryLayout && convertingGeometryLayout.indexOf("M") !== -1))) {
                 wktPointValue += " ";
-                wktPointValue += position.measure;
+                wktPointValue += position.measure || 0;
             }
 
             return wktPointValue;

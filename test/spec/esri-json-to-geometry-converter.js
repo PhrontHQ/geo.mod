@@ -1,7 +1,7 @@
-var EsriJsonToGeometryConverter = require("montage-geo/logic/converter/esri-json-to-geometry-converter").EsriJsonToGeometryConverter,
-    LineString = require("montage-geo/logic/model/line-string").LineString,
-    Polygon = require("montage-geo/logic/model/polygon").Polygon,
-    Projection = require("montage-geo/logic/model/projection").Projection;
+var EsriJsonToGeometryConverter = require("geo.mod/logic/converter/esri-json-to-geometry-converter").EsriJsonToGeometryConverter,
+    LineString = require("geo.mod/logic/model/line-string").LineString,
+    Polygon = require("geo.mod/logic/model/polygon").Polygon,
+    Projection = require("geo.mod/logic/model/projection").Projection;
 
 describe("EsriJsonToGeometryConverter", function () {
 

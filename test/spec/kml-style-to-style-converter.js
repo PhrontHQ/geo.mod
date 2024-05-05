@@ -1,5 +1,5 @@
-var KmlStyleToStyleConverter = require("montage-geo/logic/converter/kml-style-to-style-converter").KmlStyleToStyleConverter,
-    EsriSymbolToStyleConverter = require("montage-geo/logic/converter/esri-symbol-to-style-converter").EsriSymbolToStyleConverter;
+var KmlStyleToStyleConverter = require("geo.mod/logic/converter/kml-style-to-style-converter").KmlStyleToStyleConverter,
+    EsriSymbolToStyleConverter = require("geo.mod/logic/converter/esri-symbol-to-style-converter").EsriSymbolToStyleConverter;
 
 var POLYLINE_SYMBOL = {type: "esriSLS",
     style: "esriSLSSolid",

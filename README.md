@@ -1,10 +1,10 @@
-# montage-geo
-Montage resources to build geospatial applications
+# geo.mod
+Mod to build geospatial applications
 
 ## Maintenance
 
 Tests are in the `test` directory. Use `npm test` to run the tests in
-NodeJS or open `test/run.html` in a browser. 
+NodeJS or open `test/run.html` in a browser.
 
 To run the tests in your browser, simply use `npm run test:jasmine`.
 
