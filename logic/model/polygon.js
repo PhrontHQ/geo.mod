@@ -1,46 +1,37 @@
-const LineString = require("mod/data/model/geo/line-string").LineString,
+const Polygon = require("mod/data/model/geo/polygon").Polygon,
     BoundingBox = require("./bounding-box").BoundingBox,
+    d3Geo = require("d3-geo"),
     Montage = require("mod/core/core").Montage;
 
 /**
- * A Geometry whose "coordinates" property is an array of
- * two or more positions.
+ * A Geometry whose coordinates property must be an array of
+ * LinearRing coordinate arrays. For Polygons with multiple
+ * rings, the first must be the exterior ring and any others
+ * must be interior rings or holes.
  * 
- * @class LineString
- * @extends external:LineString
+ * @class Polygon
+ * @extends external:Polygon
  */
 
 
-exports.LineString = LineString;
+exports.Polygon = Polygon;
 
-Montage.defineProperties(LineString.prototype, {
+Montage.defineProperties(Polygon.prototype, {
 
     /****************************************************************
      * Measurements
      */
 
     /**
-     * Returns the bounding box that envelopes this LineString.
+     * Returns the bounding box that envelopes this Polygon.
      * @returns {BoundingBox}
      */
     bounds: {
         value: function () {
-            var xMin = Infinity,
-                yMin = Infinity,
-                xMax = -Infinity,
-                yMax = -Infinity,
-                coordinates = this.coordinates,
-                coordinate, i, n;
-
-            for (i = 0, n = coordinates && coordinates.length || 0; i < n; i += 1) {
-                coordinate = coordinates[i];
-                xMin = Math.min(xMin, coordinate.longitude);
-                yMin = Math.min(yMin, coordinate.latitude);
-                xMax = Math.max(xMax, coordinate.longitude);
-                yMax = Math.max(yMax, coordinate.latitude);
-            }
-
-            return BoundingBox.withCoordinates(xMin, yMin, xMax, yMax);
+            var geojson = Polygon.GeoJsonConverter.revert(this),
+                inverted = this._invertRings(geojson),
+                bounds = d3Geo.geoBounds(inverted);
+            return BoundingBox.withCoordinates(bounds[0][0], bounds[0][1], bounds[1][0], bounds[1][1]);
         }
     },
 
@@ -61,7 +52,7 @@ Montage.defineProperties(LineString.prototype, {
         value: function (emit) {
             var self = this,
                 coordinatesPathChangeListener,
-                cooordinatesRangeChangeListener,
+                coordinatesRangeChangeListener,
                 cancel;
 
             function update() {
@@ -73,11 +64,15 @@ Montage.defineProperties(LineString.prototype, {
 
             update();
             coordinatesPathChangeListener = this.addPathChangeListener("coordinates", update);
-            cooordinatesRangeChangeListener = this.coordinates.addRangeChangeListener(update);
+            if (this.coordinates && this.coordinates.length) {
+                coordinatesRangeChangeListener = this.coordinates[0].addRangeChangeListener(update);
+            }
 
             return function cancelObserver() {
                 coordinatesPathChangeListener();
-                cooordinatesRangeChangeListener();
+                if (coordinatesRangeChangeListener) {
+                    coordinatesRangeChangeListener();
+                }
                 if (cancel) {
                     cancel();
                 }

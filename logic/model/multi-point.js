@@ -1,26 +1,26 @@
-const LineString = require("mod/data/model/geo/line-string").LineString,
+const MultiPoint = require("mod/data/model/geo/multi-point").MultiPoint,
     BoundingBox = require("./bounding-box").BoundingBox,
     Montage = require("mod/core/core").Montage;
 
 /**
- * A Geometry whose "coordinates" property is an array of
- * two or more positions.
+ * A Geometry whose "coordinates" property must be an array of
+ * MultiPoint coordinate arrays.
  * 
- * @class LineString
- * @extends external:LineString
+ * @class MultiPoint
+ * @extends external:MultiPoint
  */
 
 
-exports.LineString = LineString;
+exports.MultiPoint = MultiPoint;
 
-Montage.defineProperties(LineString.prototype, {
+Montage.defineProperties(MultiPoint.prototype, {
 
     /****************************************************************
      * Measurements
      */
 
     /**
-     * Returns the bounding box that envelopes this LineString.
+     * Returns the bounding box that envelopes this MultiLineString.
      * @returns {BoundingBox}
      */
     bounds: {
@@ -61,7 +61,7 @@ Montage.defineProperties(LineString.prototype, {
         value: function (emit) {
             var self = this,
                 coordinatesPathChangeListener,
-                cooordinatesRangeChangeListener,
+                coordinatesRangeChangeListener,
                 cancel;
 
             function update() {
@@ -73,11 +73,11 @@ Montage.defineProperties(LineString.prototype, {
 
             update();
             coordinatesPathChangeListener = this.addPathChangeListener("coordinates", update);
-            cooordinatesRangeChangeListener = this.coordinates.addRangeChangeListener(update);
+            coordinatesRangeChangeListener = this.coordinates.addRangeChangeListener(update);
 
             return function cancelObserver() {
                 coordinatesPathChangeListener();
-                cooordinatesRangeChangeListener();
+                coordinatesRangeChangeListener();
                 if (cancel) {
                     cancel();
                 }

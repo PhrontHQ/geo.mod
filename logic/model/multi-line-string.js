@@ -1,46 +1,36 @@
-const LineString = require("mod/data/model/geo/line-string").LineString,
+const MultiLineString = require("mod/data/model/geo/multi-line-string").MultiLineString,
     BoundingBox = require("./bounding-box").BoundingBox,
     Montage = require("mod/core/core").Montage;
 
 /**
- * A Geometry whose "coordinates" property is an array of
- * two or more positions.
+ * A Geometry whose "coordinates" property must be an array of
+ * LineString coordinate arrays.
  * 
- * @class LineString
- * @extends external:LineString
+ * @class MultiLineString
+ * @extends external:MultiLineString
  */
 
 
-exports.LineString = LineString;
+exports.MultiLineString = MultiLineString;
 
-Montage.defineProperties(LineString.prototype, {
+Montage.defineProperties(MultiLineString.prototype, {
 
     /****************************************************************
      * Measurements
      */
 
     /**
-     * Returns the bounding box that envelopes this LineString.
+     * Returns the bounding box that envelopes this MultiLineString.
      * @returns {BoundingBox}
      */
     bounds: {
         value: function () {
-            var xMin = Infinity,
-                yMin = Infinity,
-                xMax = -Infinity,
-                yMax = -Infinity,
-                coordinates = this.coordinates,
-                coordinate, i, n;
-
-            for (i = 0, n = coordinates && coordinates.length || 0; i < n; i += 1) {
-                coordinate = coordinates[i];
-                xMin = Math.min(xMin, coordinate.longitude);
-                yMin = Math.min(yMin, coordinate.latitude);
-                xMax = Math.max(xMax, coordinate.longitude);
-                yMax = Math.max(yMax, coordinate.latitude);
-            }
-
-            return BoundingBox.withCoordinates(xMin, yMin, xMax, yMax);
+            return this.coordinates.map(function (lineString) {
+                return lineString.bounds();
+            }).reduce(function (bounds, childBounds) {
+                bounds.extend(childBounds)
+                return bounds;
+            }, BoundingBox.withCoordinates(Infinity, Infinity, -Infinity, -Infinity));
         }
     },
 
@@ -61,7 +51,7 @@ Montage.defineProperties(LineString.prototype, {
         value: function (emit) {
             var self = this,
                 coordinatesPathChangeListener,
-                cooordinatesRangeChangeListener,
+                coordinatesRangeChangeListener,
                 cancel;
 
             function update() {
@@ -73,11 +63,11 @@ Montage.defineProperties(LineString.prototype, {
 
             update();
             coordinatesPathChangeListener = this.addPathChangeListener("coordinates", update);
-            cooordinatesRangeChangeListener = this.coordinates.addRangeChangeListener(update);
+            coordinatesRangeChangeListener = this.coordinates.addRangeChangeListener(update);
 
             return function cancelObserver() {
                 coordinatesPathChangeListener();
-                cooordinatesRangeChangeListener();
+                coordinatesRangeChangeListener();
                 if (cancel) {
                     cancel();
                 }
