@@ -31,6 +31,8 @@ module.exports = require("mod/testing/run").run(require, [
     "spec/icon",
     "spec/kml-style-to-style-converter",
     "spec/leaflet-engine",
+    "spec/line-string",
+    "spec/multi-line-string",
     "spec/renderer",
     "spec/style",
     "spec/topojson-to-geometry-converter"
