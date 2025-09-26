@@ -81,3 +81,11 @@ Montage.defineProperties(Polygon.prototype, {
     }
 
 });
+
+Montage.defineProperties(Polygon, {
+    GeoJsonConverter: {
+        get: function () {
+            return require("logic/converter/geo-json-to-geometry-converter").GeoJsonToGeometryConverter.getInstance();
+        }
+    },
+});
