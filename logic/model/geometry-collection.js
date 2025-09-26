@@ -1,4 +1,4 @@
-const Position = require("mod/data/model/geo/position").Position;
+const GeometryCollection = require("mod/data/model/geo/geometry-collection").GeometryCollection;
 
 /**
  * A position represents a physical location on the Earth.
@@ -9,9 +9,9 @@ const Position = require("mod/data/model/geo/position").Position;
  * to be derived from the Montage prototype because they don't use any of the
  * Montage class functionality.
  *
- * @class
- * @extends external:Position
+ * @class GeometryCollection
+ * @extends external:GeometryCollection
  */
 
 
-exports.Position = Position;
+exports.GeometryCollection = GeometryCollection;

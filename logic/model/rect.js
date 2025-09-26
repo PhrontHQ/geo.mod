@@ -1,4 +1,4 @@
-const Position = require("mod/data/model/geo/position").Position;
+const Rect = require("mod/data/model/geo/rect").Rect;
 
 /**
  * A position represents a physical location on the Earth.
@@ -10,8 +10,8 @@ const Position = require("mod/data/model/geo/position").Position;
  * Montage class functionality.
  *
  * @class
- * @extends external:Position
+ * @extends external:Rect
  */
 
 
-exports.Position = Position;
+exports.Rect = Rect;
