@@ -3,7 +3,8 @@ var Projection = require("mod/data/model/geo/projection").Projection,
     Position = require("./position").Position,
     Promise = require("mod/core/promise").Promise,
     Units = require("./units").Units,
-    proj4 = require("proj4");
+    proj4 = require("proj4"),
+    Montage = require("mod/core/core").Montage;
 
 
 proj4.defs('EPSG:102100', "+title= Google Mercator EPSG:900913 +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs");
